@@ -1,0 +1,326 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="">
+<meta name="author" content="amr elarabi">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- SITE TITLE -->
+<title>Comic Maker</title>
+
+<!-- =========================
+      FAV AND TOUCH ICONS  
+============================== -->
+<link rel="icon" href="">
+
+
+<!-- =========================
+     STYLESHEETS   
+============================== -->
+		
+<!-- BOOTSTRAP -->
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+	
+<!-- CUSTOM STYLESHEETS -->
+<link rel="stylesheet" href="assets/css/styles.css">
+	
+<!--[if lt IE 9]>
+			<script src="js/html5shiv.js"></script>
+			<script src="js/respond.min.js"></script>
+<![endif]-->
+
+<!-- JQUERY -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="assets/js/jquery-3.1.1.min.js"></script>
+
+<!-- JQUERY UI -->	
+<script src="assets/js/jquery-ui.min.js"></script>
+
+<!-- JQUERY UI STYLE -->
+<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">	 
+	
+<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	
+<!-- COLOR PICKER -->
+<script src='assets/js/spectrum.js'></script>
+<link rel='stylesheet' href='assets/css/spectrum.css' />
+	
+<!-- FONTAWESOME -->
+<link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8">
+					<div id="save-box" class="box hidden">
+						<a href="images/image.png" download="final.png" id="download-button" class="btn btn-default">Download</a>
+						<button id="cancel-save" class="btn btn-danger">Cancel</button>
+						<br>
+						<br>
+						<canvas id="final"></canvas>
+					</div>
+					<div id="picture-box" class="box hidden">
+						<span class="close-box"></span>
+						<div class="box-header" >
+							You Want To Get picture From :
+						</div><!-- .box-header -->
+						<div class="row">
+							<div class="col-sm-4 center">
+								<div class="action-icon" data-box="#video">
+									<img class="box-icon" src="assets/svg/video-camera.svg" alt="video-camera" />7
+									<span>video</span>
+								</div><!-- .action-icon -->
+							</div><!-- .col -->
+							<div class="col-sm-4 center">
+								<div class="action-icon" data-box="#templete">
+
+									<img class="box-icon" src="assets/svg/picture-box.svg" alt="picture-box" />7
+									<span>templetes</span>
+								</div><!-- .action-icon -->
+							</div><!-- .col -->
+							<div class="col-sm-4 center">
+								<div class="action-icon" data-box="#upload">
+									<img class="box-icon" src="assets/svg/upload.svg" alt="upload" />
+									<span>upload</span>
+								</div><!-- .action-icon -->
+							</div><!-- .col -->
+						</div><!-- .row -->
+					</div><!-- #picture-box -->
+
+					<!-- child boxes of picture box -->
+					<div id="upload" class="box hidden">
+						<input type="file" id="myFile" multiple size="50" onchange="ableButton(this);">
+						<p id="file-info"></p>
+						<br>
+						<div class="row">
+							<div class="col-sm-6">
+								<button id="insert-button" class="btn disabled" disabled='disabled' onclick="readURL('#myFile');">Insert</button>
+							</div><!-- .col -->
+							<div class="col-sm-6">
+								<button id="cancel-insertion" class="btn btn-danger">Cancel</button>
+							</div><!-- .col -->
+						</div><!-- .row -->
+					</div><!-- .box -->
+
+					<div id="text-box" class="box hidden">
+						<span class="close-box"></span>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="box-sub-header">
+									text :
+								</div><!-- .box-sub-header -->
+							</div><!-- .col -->
+						</div><!-- .row -->
+						<div class="row">
+							<div class="col-sm-12">
+								<textarea id="text-area"></textarea>
+							</div><!-- .col -->
+						</div><!-- .row -->
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="box-sub-header">
+									font :
+								</div><!-- .box-header -->
+							</div><!-- .col -->
+						</div><!-- .row -->
+						<div class="row">
+							<div class="col-sm-12">
+								<select id="font" >
+									<option> Arial</option>
+								</select>
+							</div><!-- .col -->
+						</div><!-- .row -->
+						<div class="row">
+							<div class="col-sm-4">
+								<div class="box-sub-header">
+									size :
+								</div><!-- .box-sub-header -->
+								<input type="text" id="size">
+							</div><!-- .col -->
+							<div class="col-sm-4">
+								<div class="box-sub-header">
+									style :
+								</div><!-- .box-sub-header -->
+								<select id="style" value="normal">
+									<option value="normal">normal</option>
+									<option value="oblique">oblique</option>
+									<option value="bold">bold</option>
+									<option value="italic">italic</option>
+								</select>
+							</div><!-- .col -->
+							<div class="col-sm-4">
+								<div class="box-sub-header">
+									color :
+								</div><!-- .box-sub-header -->
+								<input type="text" id="color">
+							</div><!-- .col -->
+						</div><!-- .row -->
+						
+						<div class="row">
+							<div class="col-sm-3" >
+								<span class="box-sub-header alignment-header" >
+									alignment :
+								</span><!-- .box-sub-header -->
+							</div><!-- .col -->
+							<div class="col-sm-3">
+								<img src="assets/svg/left-alignment.svg" class="alignment-icon active-alignment" alt="alignment icon left" data-alginment="left">
+								<img src="assets/svg/center-alignment.svg" class="alignment-icon" alt="alignment icon center" data-alginment="center">
+								<img src="assets/svg/right-alignment.svg" class="alignment-icon" alt="alignment icon right" data-alginment="right">
+							</div><!-- .col -->
+							<div class="col-sm-3">
+								<span class="box-sub-header alignment-header" >
+									Stroke :
+								</span><!-- .box-sub-header -->
+							</div><!-- .col -->
+							<div class="col-sm-3">
+								<input type="checkbox" id="stroke"  />
+							</div><!-- .col -->
+						</div><!-- .row -->
+						<div class="row">
+							<button id="insert-text" onClick="insertText()">OK</button>
+						</div><!-- .row -->
+					</div><!-- #text-box -->
+					<div id="layout-box" class="box active-box">
+						<span class="close-box"></span>
+						<div class="row">
+							<div class="col-sm-4">
+								<div class="box-sub-header">
+									wdith :
+								</div><!-- .box-sub-header -->
+								<input type="text" id="width">
+							</div><!-- .col -->
+							<div class="col-sm-4">
+								<div class="box-sub-header">
+									height :
+								</div><!-- .box-sub-header -->
+								<input type="text" id="height">
+							</div><!-- .col -->
+							<div class="col-sm-4">
+								<button id="set-dimensions">set</button>
+							</div><!-- .col -->
+						</div><!-- .row -->
+
+						<div class="box-header" >
+							Or select one of standart layouts :
+						</div><!-- .box-header -->
+
+						<div class="row">
+							<div class="col-sm-4">
+								<div class="layout-size" data-dimensions="480 * 581">
+									<img src="assets/svg/window-size.svg" alt="window size" class="layout-icon img-responsive">
+									<span class="layout-dimensions">480 * 581</span>
+								</div><!-- .layout-size -->
+							</div><!-- .col -->
+							<div class="col-sm-4">
+								<div class="layout-size" data-dimensions="526 * 194">
+									<img src="assets/svg/window-size.svg" alt="window size" class="layout-icon img-responsive">
+									<span class="layout-dimensions">526 * 194</span>
+								</div><!-- .layout-size -->
+							</div><!-- .col -->
+							<div class="col-sm-4">
+								<div class="layout-size" data-dimensions="592 * 320">
+									<img src="assets/svg/window-size.svg" alt="window size" class="layout-icon img-responsive">
+									<span class="layout-dimensions">592 * 320</span>
+								</div><!-- .layout-size -->
+							</div><!-- .col -->
+							<div class="col-sm-4">
+								<div class="layout-size" data-dimensions="480 * 331">
+									<img src="assets/svg/window-size.svg" alt="window size" class="layout-icon img-responsive">
+									<span class="layout-dimensions">480 * 331</span>
+								</div><!-- .layout-size -->
+							</div><!-- .col -->
+						</div><!-- .row -->
+					</div><!-- #text-box -->
+				
+				<div class="work-space" id="work-space">
+				
+				<div class="control-widow">
+					<span class="close-window"></span>
+			    </div><!-- #control-widow -->
+				<div id="work-content">
+				</div><!-- #work-content -->
+				</div><!-- .work-space -->
+			</div><!-- .col -->
+			<div class="col-sm-4">
+				<div id="tool-bar">
+					<div class="group-header">
+						File
+					</div><!-- .group-header -->
+					<div class="row">
+						<div class="col-sm-4 center">
+							<div id="save" class="file">
+								<img class="file-icon" src="assets/svg/save.svg" alt="save" />
+								<span class="file-span" >save</span>
+							</div>
+						</div><!-- .col -->
+						<div class="col-sm-4 center">
+							<div id="share" class="file">
+								<img class="file-icon" src="assets/svg/network.svg" alt="network" />
+								<span class="file-span" >share</span>
+							</div>
+						</div><!-- .col -->
+						<div class="col-sm-4 center">
+							<div id="social" class="file">
+								<img class="file-icon" src="assets/svg/users.svg" alt="users" />
+								<span class="file-span" >social</span>
+							</div>
+						</div><!-- .col -->
+						
+					</div><!-- .row -->
+					
+					<div class="group-header">
+						Add
+					</div><!-- .group-header -->
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="add-item" data-box="#picture-box">
+								<img class="add-icon" src="assets/svg/picture.svg" alt="picture" />
+								<span class="add-span" >picture</span>
+							 </div><!-- .item -->	
+						</div><!-- .col -->
+						<div class="col-sm-12">
+							<div class="add-item" data-box="#layout-box">
+								<img class="add-icon" src="assets/svg/layout.svg" alt="layout" />
+								<span class="add-span" >layout</span>
+							</div><!-- .item -->
+						</div><!-- .col -->
+						<div class="col-sm-12">
+							<div class="add-item" data-box="#emoji-box">
+								<img class="add-icon" src="assets/svg/suspicious.svg" alt="suspicious" />
+								<span class="add-span" >emoji</span>
+							</div><!-- .item -->
+						</div><!-- .col -->
+						<div class="col-sm-12">
+							<div class="add-item" data-box="#emoji-box">
+								<img class="add-icon" src="assets/svg/character.png" alt="suspicious" />
+								<span class="add-span" >Characters</span>
+							</div><!-- .item -->
+						</div><!-- .col -->
+						<div class="col-sm-12">
+							<div class="add-item" data-box="#text-box">
+								<img class="add-icon" src="assets/svg/text.svg" alt="text" />
+								<span class="add-span" >text</span>
+							</div><!-- .item -->
+						</div><!-- .col -->
+					</div><!-- .row -->
+					
+					<div class="group-header">
+						layers
+					</div><!-- .group-header -->
+					<div  id="layers-list">
+						
+					</div><!-- #layers-list -->
+				</div><!-- #tool-bar -->
+			</div><!-- .col -->
+		</div><!-- .row -->
+	</div><!-- .container -->
+
+	<script src="assets/js/framework.js"></script>
+
+</body>
+</html>

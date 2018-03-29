@@ -1,0 +1,372 @@
+/* --------------------------------------
+=========================================
+BASICS
+=========================================
+-----------------------------------------*/
+
+body {
+	background: #606060;
+}
+
+* {
+	font-family: gotham , sans-serif;
+}
+
+button {
+	color: white !important;
+	font-weight: 300;
+	background: #23d1cb;
+	border: none;
+	width: 100%;
+	padding: 10px 0 10px;
+}
+
+.center {
+	text-align: center;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
+
+.hidden {
+	display: none;
+}
+
+.active-box , active-box-picture {
+	display: block; 
+	position: relative;
+	z-index: 1000;
+}
+
+.action-icon {
+	cursor: pointer;
+}
+
+/* --------------------------------------
+=========================================
+TOOL BAR
+=========================================
+-----------------------------------------*/
+
+#tool-bar {
+	z-index: 2000;
+	position: relative;
+	background: #54585e;
+	border: 2px solid #697281;
+}
+
+#tool-bar .group-header {
+	color: white;
+	text-transform: capitalize;
+	background: #494e56;
+	text-align: center;
+	padding: 10px 0 10px;
+	margin: 20px 0 20px;
+}
+
+#tool-bar .file-icon {
+	width: 	50px;
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+#tool-bar .file-span {
+	color: white;
+	font-weight: 300;
+	text-align: center;
+}
+
+#tool-bar .file {
+	cursor: pointer;
+}
+
+#tool-bar .add-item {
+	cursor: pointer;
+	margin: 0 0 20px 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #474a4f;
+}
+
+#tool-bar .add-icon {
+	width: 35px;
+}
+
+#tool-bar .add-span {
+	font-weight: 300;
+	color: white;
+	margin-left: 20px;
+	text-transform: capitalize;
+}
+
+#tool-bar .name {
+	color: white;
+	margin-left: 20px;
+}
+
+#tool-bar .delete {
+	width: 60px;
+	padding-right: 20px;
+}
+
+/* --------------------------------------
+=========================================
+WORK SPACE
+=========================================
+-----------------------------------------*/
+
+#work-content {
+	position: relative;
+	overflow: hidden;
+}
+
+.photo_element{
+	position: absolute;
+}
+
+.control-widow {
+	cursor: move;
+	background: #3a3d42;
+	width: inherit;
+	height: 50px;
+	display: none;
+}
+
+.work-space {
+	overflow: hidden;
+	margin-top: 100px;
+	background: white;
+}
+
+#work-space .photo {
+	cursor:all-scroll;
+	style="display:inline-block;
+}
+
+ .ui-widget-header {
+	background:#b9cd6d;
+	border: 1px solid #b9cd6d;
+	color: #FFFFFF;
+	font-weight: bold;
+ }
+ .ui-widget-content {
+	background: #cedc98;
+	color: #333333;
+ }
+
+/* --------------------------------------
+=========================================
+PICTURE BOX
+=========================================
+-----------------------------------------*/
+
+.box {
+	z-index: 2000;
+	position: absolute;
+	width: 100%;
+	padding: 30px;
+	background: #54585e;
+	border: 2px solid #697281;
+}
+
+.close-box ,
+.close-window
+{
+	content: url('../svg/cancel.svg');
+	width: 20px;
+	position: absolute;
+	top: 0px;
+	right: 10px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+.box-header {
+	font-weight: 300;
+	color: white;
+	margin-bottom: 40px;
+	text-align: left;
+}
+
+#picture-box .box-icon {
+	width: 40px;
+}
+
+#picture-box span{
+	display: block;
+	color: white;
+	font-weight: 300;
+	margin-top: 20px;
+}
+
+/* --------------------------------------
+=========================================
+TEXT BOX
+=========================================
+-----------------------------------------*/
+
+.box-sub-header{
+	color: white;
+	font-weight: 300;
+	margin-bottom: 20px;
+}
+
+textarea,
+select,
+input[type="text"] 
+{
+	background: #3a3d42;
+	width: 100%;
+	border: none;
+	color: white;
+	padding: 10px;
+	font-weight: 300;
+	margin-bottom: 20px;
+}
+
+input[type="color"] {
+	-webkit-appearance: none;
+	border: none;
+	height: 50px;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+
+#text-box #size ,
+#text-box #color ,
+#text-box #style {
+	width: 50%;
+}
+
+#text-box .alignment-header {
+	margin-right: 10px;
+}
+
+#text-box .alignment-icon {
+	width: 25px;
+	margin-right: 5px;
+	cursor: pointer;
+}
+
+#text-box .active-alignment {
+	opacity: .5;
+}
+
+#text-box #ok-button {
+	color: white;
+	font-weight: 300;
+	background: #23d1cb;
+	border: none;
+	width: 100%;
+	padding: 10px 0 10px;
+}
+
+#text-box #stroke {
+	background: #3a3d42;
+}
+
+.text-element {
+	cursor: move;
+	display: inline-block;
+	position: absolute;
+
+}
+
+#text-box button {
+	margin-top: 30px;
+}
+
+/* --------------------------------------
+=========================================
+TEXT BOX => IMAGE UPLOAD
+=========================================
+-----------------------------------------*/
+
+#myFile , #file-info {
+	color: white;
+}
+
+/* --------------------------------------
+=========================================
+LAYOUT
+=========================================
+-----------------------------------------*/
+
+.layout-size {
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+
+.layout-dimensions {
+	color: white;
+	display: block;
+	margin-top: 20px;
+	text-align: center;
+}
+
+#set-dimensions {
+	position: relative;
+	top: 45px;
+}
+
+/* --------------------------------------
+=========================================
+SAVE
+=========================================
+-----------------------------------------*/
+
+#save-box {
+	text-align: center;
+}
+
+#save-box button {
+	width: 25%;
+}
+
+/* --------------------------------------
+=========================================
+ELEMENT
+=========================================
+-----------------------------------------*/
+
+.element-control {
+	display: none;
+	position: absolute;
+	top: -40px;
+}
+
+.element-control img {
+	cursor: pointer;
+	height: 30px;
+	width: 30px;
+	margin: 5px 10px 5px 10px;
+}	
+
+.element:hover .element-control {
+	display: block;
+}
+
+
+/* --------------------------------------
+=========================================
+SIDEBAR
+=========================================
+-----------------------------------------*/
+
+#layers-list>div {
+	margin-top: 20px;
+}
+
+#layers-list .delete img {
+	cursor: pointer;
+}
