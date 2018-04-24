@@ -1,4 +1,4 @@
-# Simple mems maker with HTML5 Canvas and Javascript
+# Simple meme maker with HTML5 Canvas and Javascript
 Javascript libraries used in the project :
 1. Jquery
 2. Bootstrap
